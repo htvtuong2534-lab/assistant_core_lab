@@ -1,0 +1,12 @@
+[
+          {
+                    "id": "R001",
+                    "title": "Attendance Rule",
+                    "text": "Students should attend their scheduled classes."
+          },
+          {
+                    "id": "R002",
+                    "title": "Credit Rule",
+                    "text": "Students should check their study plan before registering for courses."
+          }
+]
