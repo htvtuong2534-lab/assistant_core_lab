@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: assistant-core
+Version: 0.3.0
+Requires-Python: >=3.10
+Requires-Dist: pydantic<3,>=2.13
+Requires-Dist: python-dotenv<2,>=1.2
+Provides-Extra: dev
+Requires-Dist: pytest<9,>=8.4; extra == "dev"
+Requires-Dist: ruff<0.18,>=0.17; extra == "dev"

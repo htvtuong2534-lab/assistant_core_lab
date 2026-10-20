@@ -1,0 +1,6 @@
+pydantic<3,>=2.13
+python-dotenv<2,>=1.2
+
+[dev]
+pytest<9,>=8.4
+ruff<0.18,>=0.17

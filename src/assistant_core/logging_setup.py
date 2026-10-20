@@ -1,4 +1,3 @@
-
 import json
 import logging
 
@@ -16,6 +15,7 @@ class JsonFormatter(logging.Formatter):
                 data[key] = getattr(record, key)
 
         return json.dumps(data, ensure_ascii=False)
+
 
 def setup_logging(level: str = "INFO") -> None:
     handler = logging.StreamHandler()

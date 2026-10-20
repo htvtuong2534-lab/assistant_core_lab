@@ -1,9 +1,9 @@
-
 import logging
 import sys
 import time
-from assistant_core.knowledge import Handbook, OfficeDirectory
+
 from assistant_core.config import load_settings
+from assistant_core.knowledge import Handbook, OfficeDirectory
 from assistant_core.logging_setup import setup_logging
 from assistant_core.models import Message
 from assistant_core.responder import StubLLMResponder, TemplateResponder
@@ -20,11 +20,7 @@ def main() -> None:
     offices = OfficeDirectory.from_csv(offices_path)
     handbook = Handbook.from_json(settings.data_dir / "handbook.json")
     # Tạm thời chưa có Handbook, nên phần hỏi quy định chưa hoạt động.
-    responder = (
-        StubLLMResponder()
-        if settings.llm_provider != "template"
-        else TemplateResponder()
-    )
+    responder = StubLLMResponder() if settings.llm_provider != "template" else TemplateResponder()
 
     service = AssistantService(
         settings=settings,
@@ -39,9 +35,7 @@ def main() -> None:
         return
 
     start = time.perf_counter()
-    response = service.handle(
-        Message(text=question, session_id="local")
-    )
+    response = service.handle(Message(text=question, session_id="local"))
     latency_ms = round((time.perf_counter() - start) * 1000, 1)
 
     log.info(

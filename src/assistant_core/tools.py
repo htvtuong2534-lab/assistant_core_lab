@@ -1,4 +1,3 @@
-
 import re
 
 from assistant_core.errors import InvalidRequest
@@ -32,9 +31,7 @@ def tuition(
     max_credits: int,
 ) -> int:
     if not 1 <= credits <= max_credits:
-        raise InvalidRequest(
-            f"Credits must be between 1 and {max_credits}."
-        )
+        raise InvalidRequest(f"Credits must be between 1 and {max_credits}.")
 
     if retake < 0:
         raise InvalidRequest("Retake credits must not be negative.")

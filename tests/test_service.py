@@ -1,6 +1,4 @@
-
 from assistant_core.config import Settings
-from assistant_core.errors import ProviderError
 from assistant_core.knowledge import OfficeDirectory, Rule
 from assistant_core.models import Message
 from assistant_core.responder import StubLLMResponder

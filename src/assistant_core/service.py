@@ -1,9 +1,6 @@
-
 import logging
 
-from assistant_core.config import Settings
 from assistant_core.errors import InvalidRequest, ProviderError
-from assistant_core.knowledge import OfficeDirectory
 from assistant_core.models import Intent, Message, Response, Source
 from assistant_core.responder import TemplateResponder
 from assistant_core.router import route
@@ -42,10 +39,7 @@ class AssistantService:
                 )
 
             return Response(
-                answer=(
-                    f"{office.name}: room {office.room}, "
-                    f"open {office.hours}."
-                ),
+                answer=(f"{office.name}: room {office.room}, open {office.hours}."),
                 intent=intent,
             )
 
@@ -83,9 +77,7 @@ class AssistantService:
                 intent=Intent.UNKNOWN,
             )
 
-        sources = [
-            Source(id=rule.id, title=rule.title)
-        ]
+        sources = [Source(id=rule.id, title=rule.title)]
 
         try:
             answer = self.responder.explain(text, rule)
@@ -97,9 +89,7 @@ class AssistantService:
             )
 
         except ProviderError:
-            log.warning(
-                "provider failed; using template fallback"
-            )
+            log.warning("provider failed; using template fallback")
 
             answer = self.fallback.explain(text, rule)
 

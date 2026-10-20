@@ -1,12 +1,11 @@
-
 from typing import Protocol
-from assistant_core.knowledge import Rule
+
 from assistant_core.errors import ProviderError
+from assistant_core.knowledge import Rule
 
 
 class Responder(Protocol):
-    def explain(self, question: str, rule: "Rule") -> str:
-        ...
+    def explain(self, question: str, rule: "Rule") -> str: ...
 
 
 class TemplateResponder:
